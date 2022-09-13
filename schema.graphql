@@ -71,3 +71,8 @@ type Transaction @entity {
 	blockNumber: BigInt!
 	events: [Event!]! @derivedFrom(field: "transaction")
 }
+
+type VaultAddressLookup @entity {
+  id: ID! #ID
+  address: Bytes!
+}
