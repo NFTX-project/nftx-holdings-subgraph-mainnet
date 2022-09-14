@@ -5,10 +5,11 @@ import {
 } from "../../generated/NFTXVaultFactoryUpgradeable/NFTXVaultFactoryUpgradeable";
 import { NFTXLPStaking } from "../../generated/templates";
 import { ADDRESS_ZERO } from "./utils/constants";
-import { createTokenAndAssignAssetInfo } from "./utils/vaultIdAssignment";
+import { createTokenAndAssignAssetInfo, createVaultAddressLookup } from "./utils/vaultIdAssignment";
 
 export function handleNewVault(event: NewVault): void {
   createTokenAndAssignAssetInfo(event.params.vaultAddress, event.params.vaultId, "vToken");
+  createVaultAddressLookup(event.params.vaultAddress, event.params.vaultId);
 }
 
 export function handleNewFeeDistributor(event: NewFeeDistributor): void {

@@ -55,6 +55,7 @@ export function handleTransfer(event: TransferEvent): void {
     balance.valueExact = balance.valueExact.plus(event.params.value);
     balance.value = decimals.toDecimals(balance.valueExact, contract.decimals);
     balance.save();
+    
 
     ev.to = to.id;
     ev.toBalance = balance.id;

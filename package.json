@@ -16,8 +16,8 @@
   "dependencies": {},
   "devDependencies": {
     "@amxx/graphprotocol-utils": "^1.1.0-alpha.2",
-    "@graphprotocol/graph-cli": "^0.28.1",
-    "@graphprotocol/graph-ts": "0.26.0",
+    "@graphprotocol/graph-cli": "^0.33.1",
+    "@graphprotocol/graph-ts": "0.27.0",
     "@openzeppelin/contracts": "^4.5.0",
     "@openzeppelin/subgraphs": "^0.1.7-1",
     "@sushiswap/core": "^1.4.2",
@@ -25,6 +25,6 @@
   },
   "resolutions": {
     "colors": "1.4.0",
-    "@graphprotocol/graph-ts": "0.26.0"
+    "@graphprotocol/graph-ts": "0.27.0"
   }
 }
