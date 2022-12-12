@@ -7,7 +7,8 @@
     "prepare:ethereum:mainnet": "mustache config/ethereum-mainnet.json subgraph.template.yaml > subgraph.yaml",
     "prepare:ethereum:goerli": "mustache config/ethereum-goerli.json subgraph.template.yaml > subgraph.yaml",
     "prepare:arbitrum:one": "mustache config/arbitrum-one.json subgraph.template.yaml > subgraph.yaml",
-    "deploy:ethereum:mainnet": "graph deploy --product hosted-service nftx-project/nftx-vault-tokens-holdings",
+    "deploy:ethereum:mainnet": "graph deploy --studio nftx-token-holdings",
+    "deploy:ethereum:mainnet:shared": "graph deploy --product hosted-service nftx-project/nftx-vault-tokens-holdings",
     "deploy:ethereum:goerli": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-goerli",
     "deploy:arbitrum:one": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-arbitrum"
   },
