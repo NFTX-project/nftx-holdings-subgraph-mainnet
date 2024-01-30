@@ -22,7 +22,7 @@ export function handleTransfer(event: TransferEvent): void {
   ev.value = decimals.toDecimals(event.params.value, contract.decimals);
   ev.valueExact = event.params.value;
 
-  if (event.params.from.toHex() == constants.ADDRESS_ZERO) {
+  if (event.params.from == constants.ADDRESS_ZERO) {
     let totalSupply = fetchERC20Balance(contract, null);
     totalSupply.valueExact = totalSupply.valueExact.plus(event.params.value);
     totalSupply.value = decimals.toDecimals(
@@ -40,8 +40,13 @@ export function handleTransfer(event: TransferEvent): void {
     ev.from = from.id;
     ev.fromBalance = balance.id;
   }
+  
+  let to = event.params.to;
+  if (!to) {
+    to = constants.ADDRESS_ZERO;
+  }
 
-  if (event.params.to.toHex() == constants.ADDRESS_ZERO) {
+  if (to == constants.ADDRESS_ZERO) {
     let totalSupply = fetchERC20Balance(contract, null);
     totalSupply.valueExact = totalSupply.valueExact.minus(event.params.value);
     totalSupply.value = decimals.toDecimals(

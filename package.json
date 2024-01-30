@@ -5,19 +5,21 @@
     "codegen": "graph codegen",
     "build": "graph build",
     "prepare:ethereum:mainnet": "mustache config/ethereum-mainnet.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:ethereum:mainnet-v2": "mustache config/ethereum-mainnet.json subgraph.template.yaml > subgraph.yaml",
     "prepare:ethereum:goerli": "mustache config/ethereum-goerli.json subgraph.template.yaml > subgraph.yaml",
     "prepare:arbitrum:one": "mustache config/arbitrum-one.json subgraph.template.yaml > subgraph.yaml",
     "deploy:ethereum:mainnet": "graph deploy --studio nftx-token-holdings",
     "deploy:ethereum:mainnet:shared": "graph deploy --product hosted-service nftx-project/nftx-vault-tokens-holdings",
+    "deploy:ethereum:mainnet-v2:shared": "graph deploy --product hosted-service nftx-project/nftx-vault-tokens-holdings-v2",
     "deploy:ethereum:goerli": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-goerli",
     "deploy:ethereum:goerli-v2": "graph deploy --product hosted-service nftx-project/nftx-v2-1-token-holdings-goerl",
     "deploy:arbitrum:one": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-arbitrum"
   },
   "dependencies": {},
   "devDependencies": {
-    "@amxx/graphprotocol-utils": "^1.1.0-alpha.2",
-    "@graphprotocol/graph-cli": "^0.33.1",
-    "@graphprotocol/graph-ts": "0.27.0",
+    "@amxx/graphprotocol-utils": "^1.1.0",
+    "@graphprotocol/graph-cli": "^0.67.2",
+    "@graphprotocol/graph-ts": "0.32.0",
     "@openzeppelin/contracts": "^4.5.0",
     "@openzeppelin/subgraphs": "^0.1.7-1",
     "@sushiswap/core": "^1.4.2",
@@ -25,6 +27,6 @@
   },
   "resolutions": {
     "colors": "1.4.0",
-    "@graphprotocol/graph-ts": "0.27.0"
+    "@graphprotocol/graph-ts": "0.32.0"
   }
 }
