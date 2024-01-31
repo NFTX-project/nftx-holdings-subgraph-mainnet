@@ -35,7 +35,7 @@ export function handleXTokenDeposited(event: Deposit): void {
     let xTokenShareValue = getXTokenShareValue(vaultId, network);
 
     let account = fetchAccount(Address.fromBytes(vaultAddress));
-    let vaultAsset = VaultAsset.load(vaultAddress.toHex());
+    let vaultAsset = VaultAsset.load(vaultAddress.toHexString());
     if (!vaultAsset) {
       vaultAsset = fetchVaultAsset(account.id);
     }
@@ -56,7 +56,7 @@ export function handleXTokenWithdrawn(event: Withdraw): void {
       return;
 
     let account = fetchAccount(Address.fromBytes(vaultAddress));
-    let vaultAsset = VaultAsset.load(vaultAddress.toHex());
+    let vaultAsset = VaultAsset.load(vaultAddress.toHexString());
     if (!vaultAsset) {
       vaultAsset = fetchVaultAsset(account.id);
     }

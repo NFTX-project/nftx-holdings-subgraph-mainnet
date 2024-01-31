@@ -107,12 +107,13 @@ dataSources:
       eventHandlers:
         - event: UserStaked(uint256,uint256,uint256,uint256,address)
           handler: handleVaultTokenWETHPairCreation
-templates:
   - kind: ethereum/contract
     name: NFTXLPStaking
     network: {{network}}
     source:
+      address: '{{lpStaking}}'
       abi: NFTXLPStaking
+      startBlock: {{startBlockNFTXFactory}}
     mapping:
       file: ./src/mappings/pairs.ts
       kind: ethereum/events
@@ -130,8 +131,11 @@ templates:
       eventHandlers:
         - event: PoolCreated(uint256,address)
           handler: handlePoolCreated
+        - event: Deposit(uint256,address,uint256,address,uint256)
+          handler: handleDeposit
         - event: PoolUpdated(uint256,address)
           handler: handlePoolUpdated
+templates:
   - kind: ethereum/contract
     name: Token
     network: {{network}}

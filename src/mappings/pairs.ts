@@ -3,7 +3,8 @@ import { UserStaked } from "../../generated/NFTXStakingZapV2/NFTXStakingZap";
 import {
   PoolCreated,
   PoolUpdated,
-} from "../../generated/templates/NFTXLPStaking/NFTXLPStaking";
+  Deposit
+} from "../../generated/NFTXLPStaking/NFTXLPStaking";
 import { NFTXVaultFactoryUpgradeable } from "../../generated/templates/Token/NFTXVaultFactoryUpgradeable";
 import { StakingTokenProvider } from "../../generated/templates/Token/StakingTokenProvider";
 import { NFTX_VAULT_FACTORY, STAKING_TOKEN_PROVIDER } from "./utils/constants";
@@ -40,7 +41,13 @@ function newPool(pair: Address, vaultId: BigInt): void {
 
 export function handlePoolCreated(event: PoolCreated): void {
   newPool(event.params.pool, event.params.vaultId);
-  stakingPair(event.params.vaultId);
+  //stakingPair(event.params.vaultId);
+}
+
+
+export function handleDeposit(event: Deposit): void {
+  // newPool(event.params.pool, event.params.vaultId);
+  createTokenAndAssignAssetInfo(event.params.stakingToken, event.params.vaultId, "vTokenWETH")
 }
 
 export function handlePoolUpdated(event: PoolUpdated): void {

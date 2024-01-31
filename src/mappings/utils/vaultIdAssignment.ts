@@ -1,5 +1,5 @@
 import { Address, BigInt } from "@graphprotocol/graph-ts";
-import { ERC20Contract, VaultAddressLookup } from "../../../generated/schema";
+import { ERC20Contract, VaultAddressLookup, VaultAsset } from "../../../generated/schema";
 import { Token } from "../../../generated/templates";
 import { fetchAccount } from "./fetch/account";
 import { fetchVaultAsset } from "./fetch/vaultAsset";
@@ -9,15 +9,20 @@ export function createTokenAndAssignAssetInfo(
   vaultId: BigInt,
   type: string
 ): void {
-  const account = fetchAccount(address);
-  const vaultAsset = fetchVaultAsset(account.id);
-  //const tokenContract = ERC20Contract.load(account.id);
-
-  Token.create(address);
+  let vaultAsset = VaultAsset.load(address.toHexString())
+  if(!vaultAsset){
+    const account = fetchAccount(address);
+     vaultAsset = fetchVaultAsset(account.id);
+     Token.create(address);
 
   vaultAsset.vaultId = vaultId;
   vaultAsset.type = type;
   vaultAsset.save();
+  }
+  
+  //const tokenContract = ERC20Contract.load(account.id);
+
+  
 }
 
 
