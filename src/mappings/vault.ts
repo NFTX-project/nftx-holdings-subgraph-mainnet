@@ -3,7 +3,8 @@ import {
   NewFeeDistributor,
   NewVault
 } from "../../generated/NFTXVaultFactoryUpgradeable/NFTXVaultFactoryUpgradeable";
-import { ADDRESS_ZERO } from "./utils/constants";
+// import { NFTXLPStaking } from "../../generated/templates";
+// import { ADDRESS_ZERO } from "./utils/constants";
 import { createTokenAndAssignAssetInfo, createVaultAddressLookup } from "./utils/vaultIdAssignment";
 
 export function handleNewVault(event: NewVault): void {
@@ -20,5 +21,5 @@ export function handleNewFeeDistributor(event: NewFeeDistributor): void {
   //   ? ADDRESS_ZERO
   //   : lpStakingAddressFromInstance.value;
 
-
+  // NFTXLPStaking.create(lpStakingAddress);
 }

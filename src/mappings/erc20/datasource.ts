@@ -12,6 +12,7 @@ import { ERC20Transfer } from "../../../generated/schema";
 import { fetchAccount } from "../utils/fetch/account";
 import { fetchERC20, fetchERC20Approval, fetchERC20Balance } from "./fetch";
 import { ADDRESS_ZERO } from "../utils/constants";
+import { store } from "@graphprotocol/graph-ts";
 
 export function handleTransfer(event: TransferEvent): void {
   let contract = fetchERC20(event.address);
@@ -37,7 +38,7 @@ export function handleTransfer(event: TransferEvent): void {
     balance.valueExact = balance.valueExact.minus(event.params.value);
     balance.value = decimals.toDecimals(balance.valueExact, contract.decimals);
     balance.save();
-
+    //store.remove("ERC20Balance", from.id)
     ev.from = from.id;
     ev.fromBalance = balance.id;
   }

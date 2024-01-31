@@ -11,7 +11,7 @@ import { NFTX_VAULT_FACTORY, STAKING_TOKEN_PROVIDER } from "./utils/constants";
 import { createTokenAndAssignAssetInfo } from "./utils/vaultIdAssignment";
 
 export function handleVaultTokenWETHPairCreation(event: UserStaked): void {
-  stakingPair(event.params.vaultId);
+  //stakingPair(event.params.vaultId);
 }
 
 function stakingPair(vaultId: BigInt): void {
