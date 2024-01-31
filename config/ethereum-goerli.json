@@ -5,6 +5,9 @@
   "startBlockInventoryStaking": "8100000",
   "startBlockZaps": "8100000",
   "startBlockZapsV2": "8100000",
+  "startBlockInventoryStaking": "8100000",
+  "startBlockZaps": "8100000",
+  "startBlockZapsV2": "8100000",
   "startBlockNFT": "8100000",
 
   "addressVaultFactory": "0x1478bEB5D18B23d2bA90FcEe91d66460AC585e6b",
