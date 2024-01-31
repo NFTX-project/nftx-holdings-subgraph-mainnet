@@ -37,7 +37,7 @@ export function handleTransfer(event: TransferEvent): void {
     balance.valueExact = balance.valueExact.minus(event.params.value);
     balance.value = decimals.toDecimals(balance.valueExact, contract.decimals);
     balance.save();
-
+    //store.remove("ERC20Balance", from.id)
     ev.from = from.id;
     ev.fromBalance = balance.id;
   }
