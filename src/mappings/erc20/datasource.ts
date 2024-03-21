@@ -11,6 +11,7 @@ import {
 import { ERC20Transfer } from "../../../generated/schema";
 import { fetchAccount } from "../utils/fetch/account";
 import { fetchERC20, fetchERC20Approval, fetchERC20Balance } from "./fetch";
+import { ADDRESS_ZERO } from "../utils/constants";
 
 export function handleTransfer(event: TransferEvent): void {
   let contract = fetchERC20(event.address);
@@ -22,7 +23,7 @@ export function handleTransfer(event: TransferEvent): void {
   ev.value = decimals.toDecimals(event.params.value, contract.decimals);
   ev.valueExact = event.params.value;
 
-  if (event.params.from.toHex() == constants.ADDRESS_ZERO) {
+  if (event.params.from == ADDRESS_ZERO) {
     let totalSupply = fetchERC20Balance(contract, null);
     totalSupply.valueExact = totalSupply.valueExact.plus(event.params.value);
     totalSupply.value = decimals.toDecimals(
@@ -36,12 +37,13 @@ export function handleTransfer(event: TransferEvent): void {
     balance.valueExact = balance.valueExact.minus(event.params.value);
     balance.value = decimals.toDecimals(balance.valueExact, contract.decimals);
     balance.save();
-
+    //store.remove("ERC20Balance", from.id)
     ev.from = from.id;
     ev.fromBalance = balance.id;
   }
 
-  if (event.params.to.toHex() == constants.ADDRESS_ZERO) {
+
+  if (event.params.to == ADDRESS_ZERO) {
     let totalSupply = fetchERC20Balance(contract, null);
     totalSupply.valueExact = totalSupply.valueExact.minus(event.params.value);
     totalSupply.value = decimals.toDecimals(

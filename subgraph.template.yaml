@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.8
 description: Explore all NFTX Vault tokens
 schema:
   file: ./schema.graphql
@@ -13,7 +13,7 @@ dataSources:
     mapping:
       file: ./src/mappings/vault.ts
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Vault
@@ -39,7 +39,7 @@ dataSources:
     mapping:
       file: ./src/mappings/inventoryStaking.ts
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Vault
@@ -65,7 +65,7 @@ dataSources:
     mapping:
       file: ./src/mappings/pairs.ts
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Zap
@@ -91,7 +91,7 @@ dataSources:
     mapping:
       file: ./src/mappings/pairs.ts
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Zap
@@ -107,16 +107,17 @@ dataSources:
       eventHandlers:
         - event: UserStaked(uint256,uint256,uint256,uint256,address)
           handler: handleVaultTokenWETHPairCreation
-templates:
   - kind: ethereum/contract
     name: NFTXLPStaking
     network: {{network}}
     source:
+      address: '{{lpStaking}}'
       abi: NFTXLPStaking
+      startBlock: {{startBlockNFTXFactory}}
     mapping:
       file: ./src/mappings/pairs.ts
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Vault
@@ -130,8 +131,11 @@ templates:
       eventHandlers:
         - event: PoolCreated(uint256,address)
           handler: handlePoolCreated
+        - event: Deposit(uint256,address,uint256,address,uint256)
+          handler: handleDeposit
         - event: PoolUpdated(uint256,address)
           handler: handlePoolUpdated
+templates:
   - kind: ethereum/contract
     name: Token
     network: {{network}}
@@ -140,7 +144,7 @@ templates:
     mapping:
       file: ./src/mappings/erc20/datasource.ts
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - ERC20Contract
