@@ -21,7 +21,7 @@ export const GOERLI_NFTX_VAULT_FACTORY = Address.fromString(
   "0x1478bEB5D18B23d2bA90FcEe91d66460AC585e6b"
 );
 export const ARBITRUM_ONE_NFTX_VAULT_FACTORY = Address.fromString(
-  "0xe01Cf5099e700c282A56E815ABd0C4948298Afae"
+  "0xE77b89FEc41A7b7dC74eb33602e82F0672FbB33C"
 );
 export const SEPOLIA_NFTX_VAULT_FACTORY = Address.fromString(
   "0x31C56CaF49125043e80B4d3C7f8734f949d8178C"
@@ -34,7 +34,7 @@ export const GOERLI_NFTX_INVENTORY_STAKING = Address.fromString(
   "0x6e91A3f27cE6753f47C66B76B03E6A7bFdDB605B"
 );
 export const ARBITRUM_ONE_NFTX_INVENTORY_STAKING = Address.fromString(
-  "0x64029E2da85B1d53815d111FEd15609034E5D557"
+  "0x1A2C03ABD4Af7C87d8b4d5aD39b56fa98E8C4Cc6"
 );
 
 export const SEPOLIA_NFTX_INVENTORY_STAKING = Address.fromString(
@@ -51,6 +51,10 @@ export const GOERLI_WETH = Address.fromString(
 
 export const SEPOLIA_WETH = Address.fromString(
   "0xfff9976782d46cc05630d1f6ebab18b2324d6b14"
+);
+
+export const ARBITRUM_WETH = Address.fromString(
+  "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
 );
 
 export function STAKING_TOKEN_PROVIDER(network: string): Address {
@@ -80,5 +84,6 @@ export function WETH(network: string): Address {
   if (network === "mainnet") return MAINNET_WETH;
   else if (network === "goerli") return GOERLI_WETH;
   else if (network === "sepolia") return SEPOLIA_WETH;
+  else if (network === "arbitrum-one") return ARBITRUM_WETH;
   return MAINNET_WETH;
 }

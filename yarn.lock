@@ -232,10 +232,10 @@
     graphql-import-node "^0.0.5"
     js-yaml "^4.1.0"
 
-"@graphprotocol/graph-cli@^0.67.2":
-  version "0.67.2"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-cli/-/graph-cli-0.67.2.tgz#4c8fcc52a0817454b50860cb7925b8d28fd94b91"
-  integrity sha512-seQyK8Fkqw0+TxWOtqVGkicLqEbCR5DQPRooo+8iqRtmZu12wDJ85n63t2abaUF//iFT7cRT4oA2OQdFXK8Vog==
+"@graphprotocol/graph-cli@^0.68.0":
+  version "0.68.5"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-cli/-/graph-cli-0.68.5.tgz#58cf65d15f41f1a30defe1cd50474d7c1205dd6a"
+  integrity sha512-3GY2pYr5LksO6JY6s5nvePnSKVdtzDEn1CUGezyjCMR1uq9YIXMPXKqcnrzCX/DLugioEabiEi2+yOg9+rnFDQ==
   dependencies:
     "@float-capital/float-subgraph-uncrashable" "^0.0.0-alpha.4"
     "@oclif/core" "2.8.6"
@@ -265,10 +265,10 @@
     which "2.0.2"
     yaml "1.10.2"
 
-"@graphprotocol/graph-ts@0.32.0", "@graphprotocol/graph-ts@^0.24.0", "@graphprotocol/graph-ts@^0.26.0":
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.32.0.tgz#36f8cd8e4ef42c3c32536cceb9995ab990f51d29"
-  integrity sha512-YfKLT2w+ItXD/VPYQiAKtINQONVsAOkcqVFMHlhUy0fcEBVWuFBT53hJNI0/l5ujQa4TSxtzrKW/7EABAdgI8g==
+"@graphprotocol/graph-ts@0.34.0", "@graphprotocol/graph-ts@^0.24.0", "@graphprotocol/graph-ts@^0.26.0":
+  version "0.34.0"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.34.0.tgz#ca47398295b114f25b412faa364b98af31fa2bb7"
+  integrity sha512-gnhjai65AV4YMYe9QHGz+HP/jdzI54z/nOfEXZFfh6m987EP2iy3ycLXrTi+ahcogHH7vtoWFdXbUzZbE8bCAg==
   dependencies:
     assemblyscript "0.19.10"
 
