@@ -16,7 +16,7 @@ export function fetchERC20(address: Address): ERC20Contract {
   let vault = fetchVaultAsset(account.id);
   let contract = ERC20Contract.load(account.id);
 
-  if (contract == null) {
+  if (!contract) {
     let endpoint = IERC20.bind(address);
     let name = endpoint.try_name();
     let symbol = endpoint.try_symbol();
@@ -52,7 +52,7 @@ export function fetchERC20Balance(
   let id = contract.id.concat("/").concat(account ? account.id : "totalSupply");
   let balance = ERC20Balance.load(id);
 
-  if (balance == null) {
+  if (!balance) {
     balance = new ERC20Balance(id);
     balance.contract = contract.id;
     balance.account = account ? account.id : null;
@@ -76,7 +76,7 @@ export function fetchERC20Approval(
     .concat(spender.id);
   let approval = ERC20Approval.load(id);
 
-  if (approval == null) {
+  if (!approval) {
     approval = new ERC20Approval(id);
     approval.contract = contract.id;
     approval.owner = owner.id;

@@ -1,4 +1,4 @@
-import { Address, BigInt, dataSource } from "@graphprotocol/graph-ts";
+import { Address, BigInt, dataSource, log } from "@graphprotocol/graph-ts";
 import { UserStaked } from "../../generated/NFTXStakingZapV2/NFTXStakingZap";
 import {
   PoolCreated,
@@ -11,7 +11,7 @@ import { NFTX_VAULT_FACTORY, STAKING_TOKEN_PROVIDER } from "./utils/constants";
 import { createTokenAndAssignAssetInfo } from "./utils/vaultIdAssignment";
 
 export function handleVaultTokenWETHPairCreation(event: UserStaked): void {
-  //stakingPair(event.params.vaultId);
+  stakingPair(event.params.vaultId);
 }
 
 function stakingPair(vaultId: BigInt): void {
@@ -23,14 +23,17 @@ function stakingPair(vaultId: BigInt): void {
   const stakingTokenProvider = StakingTokenProvider.bind(
     STAKING_TOKEN_PROVIDER(network)
   );
+  log.info("St1",[])
 
   const vaultTokenFromInstance = nftxVaultFactory.try_vault(vaultId);
   if (vaultTokenFromInstance.reverted) return;
+  log.info("St2",[])
 
   const pairFromInstance = stakingTokenProvider.try_stakingTokenForVaultToken(
     vaultTokenFromInstance.value
   );
   if (pairFromInstance.reverted) return;
+  log.info("St3",[])
 
   createTokenAndAssignAssetInfo(pairFromInstance.value, vaultId, "vTokenWETH");
 }
@@ -40,8 +43,9 @@ function newPool(pair: Address, vaultId: BigInt): void {
 }
 
 export function handlePoolCreated(event: PoolCreated): void {
-  newPool(event.params.pool, event.params.vaultId);
-  //stakingPair(event.params.vaultId);
+  log.info("PolC - {} - {}",[event.params.token.toHexString(), event.params.poolId.toString()])
+  newPool(event.params.token, event.params.poolId);
+  stakingPair(event.params.poolId);
 }
 
 

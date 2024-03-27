@@ -9,20 +9,18 @@ export function createTokenAndAssignAssetInfo(
   vaultId: BigInt,
   type: string
 ): void {
+  const account = fetchAccount(address);
+  const tokenContract = ERC20Contract.load(account.id);
   let vaultAsset = VaultAsset.load(address.toHexString())
   if(!vaultAsset){
-    const account = fetchAccount(address);
      vaultAsset = fetchVaultAsset(account.id);
-     Token.create(address);
+  }
+  if (!tokenContract) Token.create(address);
+  //const tokenContract = ERC20Contract.load(account.id);
 
   vaultAsset.vaultId = vaultId;
   vaultAsset.type = type;
   vaultAsset.save();
-  }
-  
-  //const tokenContract = ERC20Contract.load(account.id);
-
-  
 }
 
 
