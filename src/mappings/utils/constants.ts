@@ -11,7 +11,7 @@ export const GOERLI_STAKING_TOKEN_PROVIDER = Address.fromString(
   "0x057862b3DB9fDe38d030479FEe43Deb38b04d211"
 );
 export const ARBITRUM_ONE_STAKING_TOKEN_PROVIDER = Address.fromString(
-  "0xe5AB394e284d095aDacff8A0fb486cb5a24b0b7a"
+  "0x92B80faa01389B753F41Faf90e1C46Dc975830d5"
 );
 
 export const MAINNET_NFTX_VAULT_FACTORY = Address.fromString(
@@ -58,32 +58,32 @@ export const ARBITRUM_WETH = Address.fromString(
 );
 
 export function STAKING_TOKEN_PROVIDER(network: string): Address {
-  if (network === "mainnet") return MAINNET_STAKING_TOKEN_PROVIDER;
-  else if (network === "goerli") return GOERLI_STAKING_TOKEN_PROVIDER;
-  else if (network === "arbitrum-one") return ARBITRUM_ONE_STAKING_TOKEN_PROVIDER;
+  if (network == "mainnet") return MAINNET_STAKING_TOKEN_PROVIDER;
+  else if (network == "goerli") return GOERLI_STAKING_TOKEN_PROVIDER;
+  else if (network == "arbitrum-one") return ARBITRUM_ONE_STAKING_TOKEN_PROVIDER;
   return MAINNET_STAKING_TOKEN_PROVIDER;
 }
 
 export function NFTX_VAULT_FACTORY(network: string): Address {
-  if (network === "mainnet") return MAINNET_NFTX_VAULT_FACTORY;
-  else if (network === "goerli") return GOERLI_NFTX_VAULT_FACTORY;
-  else if (network === "sepolia") return SEPOLIA_NFTX_VAULT_FACTORY;
-  else if (network === "arbitrum-one") return ARBITRUM_ONE_NFTX_VAULT_FACTORY;
+  if (network == "mainnet") return MAINNET_NFTX_VAULT_FACTORY;
+  else if (network == "goerli") return GOERLI_NFTX_VAULT_FACTORY;
+  else if (network == "sepolia") return SEPOLIA_NFTX_VAULT_FACTORY;
+  else if (network == "arbitrum-one") return ARBITRUM_ONE_NFTX_VAULT_FACTORY;
   return MAINNET_NFTX_VAULT_FACTORY;
 }
 
 export function NFTX_INVENTORY_STAKING(network: string): Address {
-  if (network === "mainnet") return MAINNET_NFTX_INVENTORY_STAKING;
-  else if (network === "goerli") return GOERLI_NFTX_INVENTORY_STAKING;
-  else if (network === "sepolia") return SEPOLIA_NFTX_INVENTORY_STAKING;
-  else if (network === "arbitrum-one") return ARBITRUM_ONE_NFTX_INVENTORY_STAKING;
+  if (network == "mainnet") return MAINNET_NFTX_INVENTORY_STAKING;
+  else if (network == "goerli") return GOERLI_NFTX_INVENTORY_STAKING;
+  else if (network == "sepolia") return SEPOLIA_NFTX_INVENTORY_STAKING;
+  else if (network == "arbitrum-one") return ARBITRUM_ONE_NFTX_INVENTORY_STAKING;
   return MAINNET_NFTX_INVENTORY_STAKING;
 }
 
 export function WETH(network: string): Address {
-  if (network === "mainnet") return MAINNET_WETH;
-  else if (network === "goerli") return GOERLI_WETH;
-  else if (network === "sepolia") return SEPOLIA_WETH;
-  else if (network === "arbitrum-one") return ARBITRUM_WETH;
+  if (network == "mainnet") return MAINNET_WETH;
+  else if (network == "goerli") return GOERLI_WETH;
+  else if (network == "sepolia") return SEPOLIA_WETH;
+  else if (network == "arbitrum-one") return ARBITRUM_WETH;
   return MAINNET_WETH;
 }

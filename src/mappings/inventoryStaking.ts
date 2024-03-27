@@ -30,7 +30,7 @@ export function handleXTokenDeposited(event: Deposit): void {
   const vaultId = event.params.vaultId;
 
   let vault = getVaultFromID(vaultId);
-  if (vault != null) {
+  if (vault) {
     let vaultAddress = vault.address;
     let xTokenShareValue = getXTokenShareValue(vaultId, network);
 
