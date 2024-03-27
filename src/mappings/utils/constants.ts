@@ -57,7 +57,6 @@ export const ARBITRUM_WETH = Address.fromString(
   "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
 );
 
-
 export function STAKING_TOKEN_PROVIDER(network: string): Address {
   if (network == "mainnet") return MAINNET_STAKING_TOKEN_PROVIDER;
   else if (network == "goerli") return GOERLI_STAKING_TOKEN_PROVIDER;

@@ -11,15 +11,16 @@
     "deploy:ethereum:mainnet": "graph deploy --studio nftx-token-holdings",
     "deploy:ethereum:mainnet:shared": "graph deploy --product hosted-service nftx-project/nftx-vault-tokens-holdings",
     "deploy:ethereum:mainnet-v2:shared": "graph deploy --product hosted-service nftx-project/nftx-vault-tokens-holdings-v2",
-    "deploy:ethereum:goerli": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-goerli",
-    "deploy:ethereum:goerli-v2": "graph deploy --product hosted-service nftx-project/nftx-v2-1-token-holdings-goerl",
-    "deploy:arbitrum:one": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-arbitrum"
+    "deploy:arbitrum:one": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-arbitrum",
+    "deploy:arbitrum:onenew": "graph deploy --product hosted-service nftx-project/nftx-vault-token-holdings-arbn",
+    "create:arbitrum:local": "graph create --node http://localhost:8020 nftx/nftx-vault-holdings-arbitrum",
+    "deploy:arbitrum:local": "graph deploy  --ipfs http://localhost:5001 --node http://localhost:8020 nftx/nftx-vault-holdings-arbitrum"
   },
   "dependencies": {},
   "devDependencies": {
     "@amxx/graphprotocol-utils": "^1.1.0",
-    "@graphprotocol/graph-cli": "^0.67.2",
-    "@graphprotocol/graph-ts": "0.32.0",
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "0.34.0",
     "@openzeppelin/contracts": "^4.5.0",
     "@openzeppelin/subgraphs": "^0.1.7-1",
     "@sushiswap/core": "^1.4.2",
@@ -27,6 +28,6 @@
   },
   "resolutions": {
     "colors": "1.4.0",
-    "@graphprotocol/graph-ts": "0.32.0"
+    "@graphprotocol/graph-ts": "0.34.0"
   }
 }

@@ -6,7 +6,7 @@
   "startBlockZaps": "13004561",
   "startBlockZapsV2": "14034114",
   "startBlockNFT": "5806610",
-
+  "lpStaking": "0x688c3E4658B5367da06fd629E41879beaB538E37",
   "addressVaultFactory": "0xBE86f647b167567525cCAAfcd6f881F1Ee558216",
   "addressInventoryStaking": "0x3E135c3E981fAe3383A5aE0d323860a34CfAB893",
   "addressStakingZap": "0x28E9162fC10Bb3A7f98f44e90fA7273698fce360",
